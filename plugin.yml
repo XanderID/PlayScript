@@ -1,0 +1,12 @@
+---
+name: PlayScript
+version: 1.0.0
+main: LadinoXx\PlayScript\Main
+description: "run real-time php files on your server!"
+api: 4.0.0
+src-namespace-prefix: LadinoXx\PlayScript
+permissions:
+ script.execute:
+  description: "run codes"
+  default: OP
+...
