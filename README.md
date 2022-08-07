@@ -21,3 +21,6 @@ if (!$p instanceof Player) {
     $p->sendMessage("...");
 }
 ```
+
+### Poggit
+[![](https://poggit.pmmp.io/shield.state/PlayScript)](https://poggit.pmmp.io/p/PlayScript)
