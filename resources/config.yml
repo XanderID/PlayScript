@@ -1,0 +1,3 @@
+#Select the scripts you want to activate once the server turns on
+run-scripts:
+ - "base.php"

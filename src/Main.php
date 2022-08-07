@@ -16,7 +16,16 @@ class Main extends PluginBase{
     {
         @mkdir($this->getDataFolder() . "scripts/");
         $this->saveResource("scripts/base.php");
+        $this->saveDefaultConfig();
         $this->getServer()->getCommandMap()->register("script", new PlayScriptCommand($this));
+        foreach($this->getConfig()->get("run-scripts") as $filename) {
+            if (!file_exists($this->getDataFolder() . "scripts/" . $filename)) {
+                $this->getLogger()->warning("§ciFle " . $filename . " does not exist");
+            }else{
+                $this->executeScript(file_get_contents($this->getDataFolder() . "scripts/" . $filename));
+                $this->getLogger()->info("§aFile " . $filename . " was executed.");
+            }
+        }
     }
 
     /**
