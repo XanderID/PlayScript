@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LadinoXx\PlayScript;
 
 use pocketmine\plugin\PluginBase;
+use LadinoXx\PlayScript\PlayScriptCommand;
 
 class Main extends PluginBase{
 
