@@ -21,3 +21,5 @@ if (!$p instanceof Player) {
     $p->sendMessage("...");
 }
 ```
+### future additions
+- run the scripts specified in the configuration when starting the plugin
