@@ -20,7 +20,7 @@ class PlayScriptCommand extends Command {
     {
         $this->plugin = $plugin;
         parent::__construct("playscript", "run a script in php", "Usage : /playscript <string: filename>", ["ps"]);
-        $this->setPermission("script.execute");
+        $this->setPermission("playscript.command");
     }
 
     /**
