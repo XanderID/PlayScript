@@ -6,7 +6,7 @@ description: "run real-time php files on your server!"
 api: 4.0.0
 src-namespace-prefix: LadinoXx\PlayScript
 permissions:
- script.execute:
+ playscript.command:
   description: "run codes"
   default: OP
 ...
