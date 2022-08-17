@@ -1,6 +1,6 @@
 ---
 name: PlayScript
-version: 1.1.0
+version: 1.2.0
 main: LadinoXx\PlayScript\Main
 description: "run real-time php files on your server!"
 api: 4.0.0

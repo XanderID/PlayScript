@@ -34,7 +34,8 @@ class Main extends PluginBase{
      */
     public function executeScript(string $code) : void
     {
-        $file = str_replace(["<?php"], [""], $code);
-        eval($file);
+        $execute = '/' . preg_quote("<?php", '/') . '/';
+        $execute = preg_replace($execute, "", $code, 1);
+        eval($execute);
     }
 }
