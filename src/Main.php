@@ -22,20 +22,17 @@ class Main extends PluginBase{
             if (!file_exists($this->getDataFolder() . "scripts/" . $filename)) {
                 $this->getLogger()->warning("§ciFle " . $filename . " does not exist");
             }else{
-                $this->executeScript(file_get_contents($this->getDataFolder() . "scripts/" . $filename));
-                $this->getLogger()->info("§aFile " . $filename . " was executed.");
+                $this->executeScript($filename);
             }
         }
     }
 
     /**
-     * @param string $code
+     * @param string $path
      * @return void
      */
-    public function executeScript(string $code) : void
+    public function executeScript(string $path) : void
     {
-        $execute = '/' . preg_quote("<?php", '/') . '/';
-        $execute = preg_replace($execute, "", $code, 1);
-        eval($execute);
+        include($this->getDataFolder() . "scripts/" . $path);
     }
 }

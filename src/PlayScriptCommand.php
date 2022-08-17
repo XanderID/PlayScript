@@ -2,6 +2,7 @@
 
 namespace LadinoXx\PlayScript;
 
+use FilesystemIterator;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use LadinoXx\PlayScript\Main;
@@ -19,7 +20,7 @@ class PlayScriptCommand extends Command {
     public function __construct(Main $plugin)
     {
         $this->plugin = $plugin;
-        parent::__construct("playscript", "run a script in php", "Usage : /playscript <string: filename>", ["ps"]);
+        parent::__construct("playscript", "run a script in php", "§cUsage : /playscript <string: filename|string: list>", ["ps"]);
         $this->setPermission("playscript.command");
     }
 
@@ -33,13 +34,26 @@ class PlayScriptCommand extends Command {
     {
         if (!$this->testPermission($sender)) return;
         if (!isset($args[0])) {
-            $sender->sendMessage("§cUsage : /playscript <string: filename>");
+            $sender->sendMessage("§cUsage : /playscript <string: filename|string: list>");
+            return;
+        }
+        if ($args[0] == "list") {
+            $message = "§cfile list:";
+            foreach(new FilesystemIterator($this->plugin->getDataFolder() . "scripts") as $file) {
+                $message .= "\n§c - " . $file->getFilename() . " §a(" . $file->getSize() . "KB)";
+            }
+            $sender->sendMessage($message);
             return;
         }
         if (!file_exists($this->plugin->getDataFolder() . "scripts/" . $args[0])) {
-            $sender->sendMessage("§cFile " . $args[0] . " does not exist");
+            $sender->sendMessage("§cFile " . $args[0] . " does not exist, file list:");
+            $message = "";
+            foreach(new FilesystemIterator($this->plugin->getDataFolder() . "scripts") as $file) {
+                $message .= "\n§c - " . $file->getFilename() . " §a(" . $file->getSize() . "KB)";
+            }
+            $sender->sendMessage($message);
             return;
         }
-        $this->plugin->executeScript(file_get_contents($this->plugin->getDataFolder() . "scripts/" . $args[0]));
+        $this->plugin->executeScript($args[0]);
     }
 }
