@@ -22,5 +22,8 @@ if (!$p instanceof Player) {
 }
 ```
 
+### example codes
+You can see more example codes [here](https://github.com/LadinoXx/PlayScript/tree/main/code_example)
+
 ### Poggit
 [![](https://poggit.pmmp.io/shield.state/PlayScript)](https://poggit.pmmp.io/p/PlayScript)
