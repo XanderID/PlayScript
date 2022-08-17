@@ -22,7 +22,7 @@ if (!$p instanceof Player) {
 }
 ```
 
-### example codes
+### Example codes
 You can see more example codes [here](https://github.com/LadinoXx/PlayScript/tree/main/code_example)
 
 ### Poggit
